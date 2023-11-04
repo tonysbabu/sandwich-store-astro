@@ -1,15 +1,14 @@
 ---
-import { AddToCart } from '../components/add-to-cart';
-
-function formatCurrency(amount: number) {
+import { AddToCart } from './add-to-cart';
+function formatCurrency(price) {
 	return new Intl.NumberFormat('en-US', {
-		currency: 'usd',
 		style: 'currency',
-	}).format(amount);
+		currency: 'USD',
+	}).format(price);
 }
 
 const result = await fetch(
-	'https://astro-frontend-masters-api.netlify.app/api/products',
+	'https://astro-frontend-masters-api.netlify.app/api/products'
 );
 
 if (!result.ok) {
@@ -28,17 +27,15 @@ const { count = Infinity, addToCart = true } = Astro.props;
 
 <section class="shop-items">
 	{
-		shopItems.slice(0, count).map((item) => {
-			return (
-				<div class="item">
-					<img src={item.image.src} alt={item.image.alt} />
-					<h2>{item.title}</h2>
-					<p>{item.description}</p>
-					<p class="price">{formatCurrency(item.price)}</p>
-					{addToCart ? <AddToCart item={item} client:only="react" /> : null}
-				</div>
-			);
-		})
+		shopItems.slice(0, count).map((item) => (
+			<div class="item">
+				<img src={item.image.src} alt={item.image.alt} />
+				<h2>{item.title}</h2>
+				<p>{item.description}</p>
+				<p class="price">{formatCurrency(item.price)}</p>
+				{addToCart ? <AddToCart item={item} client:only="react" /> : null}
+			</div>
+		))
 	}
 </section>
 

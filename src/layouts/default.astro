@@ -1,17 +1,8 @@
 ---
 const navItems = [
-	{
-		path: '/shop',
-		label: 'Shop',
-	},
-	{
-		path: '/blog',
-		label: 'Blog',
-	},
-	{
-		path: '/about',
-		label: 'About',
-	},
+	{ path: '/shop', label: 'Shop' },
+	{ path: '/about', label: 'About' },
+	{ path: '/blog', label: 'Blog' },
 ];
 ---
 
@@ -28,7 +19,7 @@ const navItems = [
 
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Make great sandwiches at home with sndwch</title>
 	</head>
 	<body>
 		<header>
@@ -36,18 +27,12 @@ const navItems = [
 				<span role="img" aria-label="hotdog">🌭</span>
 				sndwch
 			</a>
-
 			<nav>
-				{
-					navItems.map((item) => {
-						return <a href={item.path}>{item.label}</a>;
-					})
-				}
+				{navItems.map((item) => <a href={item.path}>{item.label}</a>)}
 			</nav>
 		</header>
 
 		<slot />
-
 		<footer>
 			<p>
 				<a href="https://jason.af/links">created by Jason Lengstorf</a>

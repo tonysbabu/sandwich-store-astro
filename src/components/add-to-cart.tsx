@@ -1,10 +1,19 @@
 /** @jsxImportSource react */
-
 import { addItemToCart } from '../stores/cart';
 
-export const AddToCart = ({ item }: { item: ShopItem }) => {
+type AddToCartType = {
+	item: ShopItem;
+};
+
+export const AddToCart = ({ item }: AddToCartType) => {
 	return (
-		<button className="big-link" onClick={() => addItemToCart(item)}>
+		<button
+			className="big-link"
+			onClick={() => {
+				console.log('item atc ', item);
+				addItemToCart(item);
+			}}
+		>
 			Add To Cart
 		</button>
 	);
