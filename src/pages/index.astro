@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/default.astro';
 import heroImg from '../images/sandwich-hero.jpg';
-import Shopitems from '../components/shop-items.astro';
 import ShopItems from '../components/shop-items.astro';
 import newLetterImg from '../images/newsletter.jpg';
 ---
@@ -13,7 +12,7 @@ import newLetterImg from '../images/newsletter.jpg';
 			<p class="lede">The worlds leading sandwich connosoirs.</p>
 			<a href="/shop" class="big-link">Shop sandwich kits</a>
 		</div>
-		<img src={heroImg} class="hero-image" loading="eager" decoding="async" />
+		<img src={heroImg.src} class="hero-image"  />
 	</section>
 	<section>
 		<ShopItems count={3} addToCart={false} />
@@ -22,7 +21,7 @@ import newLetterImg from '../images/newsletter.jpg';
 		</p>
 	</section>
 	<section class="block newsletter">
-		<img src={newLetterImg} />
+		<img src={newLetterImg.src} />
 		<div class="copy">
 			<h3>Prefer your sandwiches on the go</h3>
 			<p>Get the sandwich newsletter</p>
